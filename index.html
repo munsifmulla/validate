@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="validate.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.form').validate({
+                popUp:false,
+                onValidate:function(){alert("Validated")}
+            });
+
+            var arr = [];
+            var height = 0;
+            var lis = $(".List").find("li");
+            lis.each(function(key, item){
+                arr.push($(item).height());
+                height = Math.max.apply(null, arr)
+            });
+            lis.height(height);
+        });
+    </script>
+    <link rel="stylesheet" href="validate.css"/>
+    <link rel="stylesheet" href="animate.css"/>
+    <style type="text/css">
+        .form{
+            width: 800px;
+            height:300px;
+            background: #fff;
+            margin: 0 auto;
+            text-transform:capitalize ;
+        }
+        .List{
+            list-style: none;
+        }
+        .List li{
+            float: left;
+            padding: 10px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body id = "test">
+<div class = "form">
+    <p>
+        <input type="text" placeholder="Name" data-element = "input" data-felement = "name" data-mandatory = "true"/>
+    </p>
+    <p>
+        <input type="text" placeholder="Email" data-element = "input" data-felement = "email" data-mandatory = "true"/>
+    </p>
+    <p>
+        <input type="text" placeholder="Contact" data-element = "input" data-felement = "phone" data-mandatory = "true"/>
+    </p>
+    <p>
+        <input type="text" placeholder="Web" data-element = "input" data-felement = "web" data-mandatory = "false"/>
+    </p>
+    <p>
+        <textarea name="" id="" cols="30" rows="10" data-element="input" data-felement="message" data-mandatory="true"></textarea>
+    </p>
+    <p>
+        <input type="button" data-element = "button" value = "Validate"/>
+    </p>
+</div>
+</body>
+</html>
