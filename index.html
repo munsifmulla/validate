@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="validate.js"></script>
+    <script src="js/validate.js"></script>
     <script type="text/javascript">
         $(function(){
             $('.form').validate({
-                popUp:false,
+                popUp:true,
                 onValidate:function(){alert("Validated")}
             });
 
-            var arr = [];
-            var height = 0;
-            var lis = $(".List").find("li");
-            lis.each(function(key, item){
-                arr.push($(item).height());
-                height = Math.max.apply(null, arr)
-            });
-            lis.height(height);
+//            var arr = [];
+//            var height = 0;
+//            var lis = $(".List").find("li");
+//            lis.each(function(key, item){
+//                arr.push($(item).height());
+//                height = Math.max.apply(null, arr)
+//            });
+//            lis.height(height);
         });
     </script>
     <link rel="stylesheet" href="css/validate.css"/>

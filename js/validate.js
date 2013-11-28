@@ -38,7 +38,10 @@
             },
             _removePopUp: function () {
                 $(".validateExitPopUp").bind("click", function () {
-                    fn.popUp.fadeOut();
+                    if(fn.popUp.hasClass("animated shake")){
+                        fn.popUp.removeClass("animated shake");
+                        fn.popUp.fadeOut();
+                    }
                 });
             },
             execute: function () {
@@ -46,6 +49,7 @@
                 fn._removePopUp();
             }
         }
+
         //Add the Error Elements
         _inputElements.parent().append(_errorElement);
         //Add PopUp Element
@@ -111,7 +115,7 @@
                         else {
                             fn.popUp.find('.validateMessage').html(_errorConsole[key]);
                             if(fn.popUp.hasClass("animated shake")){
-                                fn.popUp.removeClass("animated shake")
+                                fn.popUp.removeClass("animated shake");
                                 fn.popUp.show().addClass("animated shake");
                             }
                             else{
